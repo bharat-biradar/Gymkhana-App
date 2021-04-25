@@ -15,6 +15,5 @@ class AuthenticationState extends Equatable {
   final CustomUser user;
 
   @override
-  // TODO: implement props
   List<Object> get props => [status,user];
 }

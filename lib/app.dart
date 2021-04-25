@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:firebase_services/firebase_repository.dart';
+import './firebase_services/firebase_repository.dart';
 import 'package:gymkhana_app/Blocs/authentication_bloc/authentication_bloc.dart';
 import 'package:gymkhana_app/Blocs/themeBloc/theme_bloc.dart';
 import 'package:gymkhana_app/constants.dart';

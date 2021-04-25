@@ -2,7 +2,7 @@ import 'dart:async';
 import '../../Pedantic Pack/pedantic.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:firebase_services/firebase_repository.dart';
+import 'package:gymkhana_app/firebase_services/firebase_repository.dart';
 import 'package:flutter/cupertino.dart';
 part 'authentication_state.dart';
 

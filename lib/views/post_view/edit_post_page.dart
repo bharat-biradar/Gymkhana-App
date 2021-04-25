@@ -68,7 +68,7 @@ class _EditPostPageState extends State<EditPostPage> {
               SizedBox(
                 height: 20,
               ),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () async {
                   final data = {
                     'title': _titleController.text,

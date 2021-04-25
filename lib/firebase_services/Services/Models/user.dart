@@ -16,7 +16,6 @@ class CustomUser extends Equatable {
   final String photoUrl;
 
   @override
-  // TODO: implement props
   List<Object> get props => [email, id, name, photoUrl];
 
   static const empty =

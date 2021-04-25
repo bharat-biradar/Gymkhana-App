@@ -1,4 +1,4 @@
-import 'package:firebase_services/firebase_repository.dart';
+import 'package:gymkhana_app/firebase_services/firebase_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gymkhana_app/Blocs/LoginCubit/login_cubit.dart';
@@ -32,13 +32,13 @@ class LoginForm extends StatelessWidget {
     return BlocListener<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state == LoginState.LoginFailure) {
-          Scaffold.of(context)
+          ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(
               const SnackBar(content: Text('Authentication Failure')),
             );
           if (state == LoginState.InvalidEmail) {
-            Scaffold.of(context)
+            ScaffoldMessenger.of(context)
               ..hideCurrentSnackBar()
               ..showSnackBar(const SnackBar(
                   content: Text("Please use your institute id")));
@@ -68,16 +68,15 @@ class _GoogleLoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return RaisedButton.icon(
-      key: const Key('loginForm_googleLogin_raisedButton'),
+    return ElevatedButton.icon(
+      key: const Key('loginForm_googleLogin_ElevatedButton'),
       label: Text(
         'SIGN IN WITH GOOGLE',
         style: theme.textTheme.subtitle1,
       ),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
       icon: Icon(Icons.arrow_forward,
           color: currentTheme == 'light' ? Colors.black : Colors.white),
-      color: theme.accentColor,
+      
       onPressed: () => context.bloc<LoginCubit>().logInWithGoogle(),
     );
   }

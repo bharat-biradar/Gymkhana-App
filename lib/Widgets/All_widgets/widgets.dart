@@ -131,11 +131,11 @@ void showDialogBox(BuildContext context, Function submitPost) {
           title: Text('Submit post?'),
           content: Text('Are you sure to submit'),
           actions: [
-            FlatButton(
+            TextButton(
               child: Text('cancel'),
               onPressed: () => Navigator.pop(context),
             ),
-            FlatButton(
+            TextButton(
               child: Text('yes'),
               onPressed: submitPost,
             )

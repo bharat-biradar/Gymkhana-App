@@ -1,4 +1,4 @@
-import 'package:firebase_services/firebase_repository.dart';
+import 'package:gymkhana_app/firebase_services/firebase_repository.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gymkhana_app/Blocs/blocs.dart';

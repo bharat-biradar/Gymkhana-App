@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:firebase_services/Services/Models/post.dart';
-import 'package:firebase_services/firebase_repository.dart';
+import 'package:gymkhana_app/firebase_services/firebase_repository.dart';
 import 'package:bloc/bloc.dart';
 
 part 'home_page_state.dart';

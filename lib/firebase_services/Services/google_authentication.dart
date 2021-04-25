@@ -1,7 +1,7 @@
-import 'package:firebase_services/Services/Models/user.dart';
+import './Models/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_services/Services/database_services.dart';
-import 'package:firebase_services/firebase_repository.dart';
+import './database_services.dart';
+import '../firebase_repository.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginFailure implements Exception {}

@@ -1,7 +1,7 @@
 import 'package:gymkhana_app/Widgets/all_widgets.dart';
 
 import 'view_post_page.dart';
-import 'package:firebase_services/firebase_repository.dart';
+import 'package:gymkhana_app/firebase_services/firebase_repository.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

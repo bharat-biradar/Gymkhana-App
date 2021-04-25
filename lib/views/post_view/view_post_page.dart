@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_services/firebase_repository.dart';
+import 'package:gymkhana_app/firebase_services/firebase_repository.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -259,9 +259,11 @@ class _CommentButtonState extends State<CommentButton> {
                 controller: _textEditingController,
                 onChanged: (val) => setState(() => null),
               )),
-          RaisedButton(
-            disabledColor: Colors.grey,
-            color: Colors.blueGrey,
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              primary: Colors.blueGrey,
+              
+            ),
             onPressed: _textEditingController.text.length > 4
                 ? () => _postComment(widget._comments, currentUser)
                 : null,

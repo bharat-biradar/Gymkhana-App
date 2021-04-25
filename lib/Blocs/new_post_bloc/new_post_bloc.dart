@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:firebase_services/Services/database_services.dart';
+import 'package:gymkhana_app/firebase_services/Services/database_services.dart';
 
 part 'new_post_event.dart';
 

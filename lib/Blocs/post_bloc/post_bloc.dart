@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:firebase_services/Services/database_services.dart';
-import 'package:firebase_services/firebase_repository.dart';
+import 'package:gymkhana_app/firebase_services/Services/database_services.dart';
+import 'package:gymkhana_app/firebase_services/firebase_repository.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gymkhana_app/constants.dart';
@@ -16,7 +16,7 @@ class PostBloc extends Bloc<PostEvent, PostState> {
   PostItem get postItem => _postItem;
   final databaseService = DatabaseServices();
 
-  PostBloc(this._postItem) : super(PostViewState(postItem: _postItem));
+  PostBloc(this._postItem) : super(PostViewState(postItem: _postItem,lightTheme: currentTheme == 'light'));
 
   @override
   Stream<PostState> mapEventToState(PostEvent event) async* {

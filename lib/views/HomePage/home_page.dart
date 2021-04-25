@@ -1,9 +1,8 @@
-import 'package:firebase_services/firebase_repository.dart';
+import 'package:gymkhana_app/firebase_services/firebase_repository.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gymkhana_app/Blocs/blocs.dart';
-import 'package:gymkhana_app/Pedantic%20Pack/pedantic.dart';
 import 'package:gymkhana_app/constants.dart';
 import '../NewPostPage/new_post.dart';
 import 'Home_widgets/home_widgets.dart';

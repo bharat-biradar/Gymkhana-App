@@ -15,7 +15,6 @@ class SearchFilterEvent extends HomePageEvent {
   SearchFilterEvent(this.text);
 
   @override
-  // TODO: implement props
   List<Object> get props => [text];
 }
 

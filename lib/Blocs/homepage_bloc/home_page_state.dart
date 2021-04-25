@@ -4,7 +4,6 @@ abstract class HomePageState extends Equatable {
   const HomePageState();
 
   @override
-  // TODO: implement props
   List<Object> get props => [];
 }
 
