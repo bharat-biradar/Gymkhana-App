@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gymkhana_app/WIdgets/all_widgets.dart';
+import 'package:gymkhana_app/Widgets/all_widgets.dart';
 
 class SearchView extends StatelessWidget {
   @override

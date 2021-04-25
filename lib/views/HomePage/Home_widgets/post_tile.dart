@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:gymkhana_app/firebase_services/firebase_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:gymkhana_app/WIdgets/all_widgets.dart';
+import 'package:gymkhana_app/Widgets/all_widgets.dart';
 import 'package:gymkhana_app/constants.dart';
 import 'package:gymkhana_app/views/post_view/post_view.dart';
 

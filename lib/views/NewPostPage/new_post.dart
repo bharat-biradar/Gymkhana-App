@@ -3,7 +3,7 @@ import 'package:gymkhana_app/firebase_services/firebase_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gymkhana_app/Blocs/new_post_bloc/new_post_bloc.dart';
-import 'package:gymkhana_app/WIdgets/all_widgets.dart';
+import 'package:gymkhana_app/Widgets/all_widgets.dart';
 
 class NewPost extends StatelessWidget {
   @override
