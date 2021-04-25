@@ -18,7 +18,7 @@ class SearchFilterEvent extends HomePageEvent {
   List<Object> get props => [text];
 }
 
-class ClubFilterEvent extends HomePageEvent{
+class ClubFilterEvent extends HomePageEvent {
   final club;
 
   ClubFilterEvent(this.club);
@@ -27,13 +27,11 @@ class ClubFilterEvent extends HomePageEvent{
   List<Object> get props => [this.club];
 }
 
-class FilterEvent extends HomePageEvent{
+class FilterEvent extends HomePageEvent {
   final club;
   final text;
 
   FilterEvent({this.club, this.text});
 }
 
-class TimerEvent extends HomePageEvent{
-
-}
+class TimerEvent extends HomePageEvent {}

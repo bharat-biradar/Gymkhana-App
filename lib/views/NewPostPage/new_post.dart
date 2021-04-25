@@ -8,12 +8,15 @@ import 'package:gymkhana_app/WIdgets/all_widgets.dart';
 class NewPost extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final theme =Theme.of(context);
+    final theme = Theme.of(context);
     return SafeArea(
       child: Scaffold(
           appBar: AppBar(
             backgroundColor: theme.accentColor,
-            title: Text('New Post',style: theme.textTheme.headline5,),
+            title: Text(
+              'New Post',
+              style: theme.textTheme.headline5,
+            ),
           ),
           body: BlocProvider(
             create: (context) => NewPostBloc(),
@@ -94,7 +97,7 @@ class InputForm extends StatelessWidget {
                             'time created': Timestamp.now(),
                             'author_id': customUser.id,
                             'club': customUser.name,
-                            'enableFeedback' : state.feedback
+                            'enableFeedback': state.feedback
                           };
                           await context
                               .bloc<NewPostBloc>()
@@ -107,7 +110,6 @@ class InputForm extends StatelessWidget {
                       : null,
                 ),
               ),
-
               SizedBox(
                 height: 15,
               ),

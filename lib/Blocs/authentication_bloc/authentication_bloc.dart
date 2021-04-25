@@ -20,7 +20,6 @@ class AuthenticationBloc
     );
   }
 
-
   @override
   Stream<AuthenticationState> mapEventToState(
       AuthenticationEvent event) async* {

@@ -16,7 +16,9 @@ class PostBloc extends Bloc<PostEvent, PostState> {
   PostItem get postItem => _postItem;
   final databaseService = DatabaseServices();
 
-  PostBloc(this._postItem) : super(PostViewState(postItem: _postItem,lightTheme: currentTheme == 'light'));
+  PostBloc(this._postItem)
+      : super(PostViewState(
+            postItem: _postItem, lightTheme: currentTheme == 'light'));
 
   @override
   Stream<PostState> mapEventToState(PostEvent event) async* {
@@ -24,7 +26,8 @@ class PostBloc extends Bloc<PostEvent, PostState> {
       yield PostLoadingState();
     }
     if (event is PostViewEvent) {
-      yield PostViewState(postItem: event.postItem,lightTheme: currentTheme == 'light');
+      yield PostViewState(
+          postItem: event.postItem, lightTheme: currentTheme == 'light');
     }
     if (event is PostEditEvent) {
       yield PostEditState(postItem: event.postItem);

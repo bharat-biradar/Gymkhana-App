@@ -20,4 +20,4 @@ class HomePageLoaded extends HomePageState {
   List<Object> get props => [postItems];
 }
 
-class HomePageError extends HomePageState{}
+class HomePageError extends HomePageState {}

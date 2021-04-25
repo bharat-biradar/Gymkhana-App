@@ -32,31 +32,29 @@ ThemeData lightTheme() {
 
 ThemeData darkTheme() {
   return ThemeData(
-      applyElevationOverlayColor: true,
-      scaffoldBackgroundColor: const Color.fromRGBO(42, 45, 50, 1),
-      accentColor: const Color.fromRGBO(124, 127, 139, 1),
-      floatingActionButtonTheme: FloatingActionButtonThemeData(
-          focusElevation: 12,
-          elevation: 10,
-          backgroundColor: const Color.fromRGBO(58, 60, 70, 1)),
-      hintColor: Colors.white70,
-      errorColor: Colors.deepOrangeAccent,
-      textTheme: TextTheme(
-          headline5: const TextStyle(
-              color: Colors.white, fontSize: 21, fontWeight: FontWeight.w700),
-          headline6: const TextStyle(
-              color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
-          subtitle1: const TextStyle(
-            fontSize: 18,
-            color: Colors.white,
-          ),
-          subtitle2: const TextStyle(
-            fontSize: 17,
-            color: Colors.white,
-          )),
-
+    applyElevationOverlayColor: true,
+    scaffoldBackgroundColor: const Color.fromRGBO(42, 45, 50, 1),
+    accentColor: const Color.fromRGBO(124, 127, 139, 1),
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+        focusElevation: 12,
+        elevation: 10,
+        backgroundColor: const Color.fromRGBO(58, 60, 70, 1)),
+    hintColor: Colors.white70,
+    errorColor: Colors.deepOrangeAccent,
+    textTheme: TextTheme(
+        headline5: const TextStyle(
+            color: Colors.white, fontSize: 21, fontWeight: FontWeight.w700),
+        headline6: const TextStyle(
+            color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
+        subtitle1: const TextStyle(
+          fontSize: 18,
+          color: Colors.white,
+        ),
+        subtitle2: const TextStyle(
+          fontSize: 17,
+          color: Colors.white,
+        )),
     iconTheme: IconThemeData(color: Colors.white),
-
   );
 }
 

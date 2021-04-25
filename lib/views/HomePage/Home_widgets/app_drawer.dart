@@ -30,7 +30,15 @@ class AppDrawer extends StatelessWidget {
                           height: 50,
                         )),
                     IconButton(
-                      icon: currentTheme == 'light'? Icon(Icons.nightlight_round,color: Colors.black ,) : Icon(Icons.brightness_7,color: Colors.white,),
+                      icon: currentTheme == 'light'
+                          ? Icon(
+                              Icons.nightlight_round,
+                              color: Colors.black,
+                            )
+                          : Icon(
+                              Icons.brightness_7,
+                              color: Colors.white,
+                            ),
                       onPressed: () async {
                         if (context.bloc<ThemeBloc>().state ==
                             ThemeStates.light()) {
@@ -68,8 +76,14 @@ class AppDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.home,color:currentTheme == 'light'? Colors.black :Colors.white,) ,
-            title:  Text('Home',style: theme.textTheme.subtitle2,),
+            leading: Icon(
+              Icons.home,
+              color: currentTheme == 'light' ? Colors.black : Colors.white,
+            ),
+            title: Text(
+              'Home',
+              style: theme.textTheme.subtitle2,
+            ),
             onTap: () => Navigator.pop(context),
           )
         ],

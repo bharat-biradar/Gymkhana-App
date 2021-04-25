@@ -20,8 +20,8 @@ class _MainActivityState extends State<MainActivity> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ThemeBloc,ThemeStates>(
-      builder:(context,state) => MaterialApp(
+    return BlocBuilder<ThemeBloc, ThemeStates>(
+      builder: (context, state) => MaterialApp(
         theme: state.themeData,
         debugShowCheckedModeBanner: false,
         navigatorKey: _navigatorKey,
@@ -36,18 +36,18 @@ class _MainActivityState extends State<MainActivity> {
                   ),
                 );
               }
-              if(snapshot.connectionState==ConnectionState.done){
+              if (snapshot.connectionState == ConnectionState.done) {
                 return BlocListener<AuthenticationBloc, AuthenticationState>(
                   listener: (context, state) {
                     if (state.status == AuthStatus.authenticated) {
                       return _navigator.pushAndRemoveUntil<void>(
                         HomePage.route(),
-                            (route) => false,
+                        (route) => false,
                       );
                     } else {
                       return _navigator.pushAndRemoveUntil<void>(
                         LoginPage.route(),
-                            (route) => false,
+                        (route) => false,
                       );
                     }
                   },
@@ -55,7 +55,9 @@ class _MainActivityState extends State<MainActivity> {
                 );
               }
               return Scaffold(
-                body: Center(child: CircularProgressIndicator(),),
+                body: Center(
+                  child: CircularProgressIndicator(),
+                ),
               );
             },
           );

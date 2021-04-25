@@ -76,7 +76,6 @@ class _GoogleLoginButton extends StatelessWidget {
       ),
       icon: Icon(Icons.arrow_forward,
           color: currentTheme == 'light' ? Colors.black : Colors.white),
-      
       onPressed: () => context.bloc<LoginCubit>().logInWithGoogle(),
     );
   }

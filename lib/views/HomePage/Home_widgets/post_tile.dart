@@ -6,8 +6,7 @@ import 'package:gymkhana_app/constants.dart';
 import 'package:gymkhana_app/views/post_view/post_view.dart';
 
 class PostTile extends StatelessWidget {
-  const PostTile( {@required PostItem postItem})
-      : _postItem = postItem;
+  const PostTile({@required PostItem postItem}) : _postItem = postItem;
   final PostItem _postItem;
 
   @override

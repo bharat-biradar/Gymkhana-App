@@ -19,7 +19,7 @@ class BodyChanged extends NewPostEvent {
   BodyChanged(this.body);
 }
 
-class FeedBackChanged extends NewPostEvent{
+class FeedBackChanged extends NewPostEvent {
   final bool feedback;
 
   FeedBackChanged(this.feedback);

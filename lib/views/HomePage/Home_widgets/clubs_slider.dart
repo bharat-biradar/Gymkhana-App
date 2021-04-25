@@ -59,7 +59,9 @@ class ClubsSlider extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 5,),
+            SizedBox(
+              height: 5,
+            ),
             AnimatedContainer(
               padding: EdgeInsets.only(right: 30),
               height: state.selected == 0 ? 0 : 50,
@@ -75,9 +77,16 @@ class ClubsSlider extends StatelessWidget {
                           .add(SocietyChanged(society: null, selected: 0));
                     },
                     child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
-                      decoration: neumorphicBorderDecoration(context,borderRadius: 10,offset1: 4,offset2: 3,spreadRadius: 0,blurRadius: 7),
-                      child: Text('Clear',style: Theme.of(context).textTheme.subtitle2),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                      decoration: neumorphicBorderDecoration(context,
+                          borderRadius: 10,
+                          offset1: 4,
+                          offset2: 3,
+                          spreadRadius: 0,
+                          blurRadius: 7),
+                      child: Text('Clear',
+                          style: Theme.of(context).textTheme.subtitle2),
                     ),
                   ),
                 ],
@@ -126,7 +135,11 @@ class _ClubTileState extends State<ClubTile>
         decoration: context.bloc<ClubsBloc>().state.selected == widget.myNor
             ? innerShadow(20)
             : neumorphicBorderDecoration(context,
-            borderRadius: 20, offset1: 10,offset2: 2, spreadRadius: 0, blurRadius: 10),
+                borderRadius: 20,
+                offset1: 10,
+                offset2: 2,
+                spreadRadius: 0,
+                blurRadius: 10),
         child: Stack(children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(15),

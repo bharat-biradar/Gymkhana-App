@@ -40,7 +40,6 @@ class PostViewPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-
                   GestureDetector(
                     onTap: () => context
                         .bloc<PostBloc>()
@@ -48,14 +47,22 @@ class PostViewPage extends StatelessWidget {
                     child: Container(
                       margin: EdgeInsets.only(right: 20),
                       padding: EdgeInsets.all(17),
-                      decoration: neumorphicBorderDecoration(context,borderRadius: 10,offset1: 6,spreadRadius: 0,blurRadius: 10,),
-                      child: Text('Update',style: Theme.of(context).textTheme.subtitle2),
+                      decoration: neumorphicBorderDecoration(
+                        context,
+                        borderRadius: 10,
+                        offset1: 6,
+                        spreadRadius: 0,
+                        blurRadius: 10,
+                      ),
+                      child: Text('Update',
+                          style: Theme.of(context).textTheme.subtitle2),
                     ),
                   ),
-
                 ],
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               BlocBuilder<PostBloc, PostState>(
                 builder: (context, state) {
                   if (state is PostLoadingState) {

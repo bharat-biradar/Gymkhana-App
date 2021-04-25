@@ -13,13 +13,16 @@ class NewPostState extends Equatable {
 
   NewPostState({this.title, this.body, this.feedback});
 
-   NewPostState.pure()
+  NewPostState.pure()
       : title = '',
         body = '',
         feedback = true;
 
-  NewPostState copyWith({String title, String body,bool feedback}) {
-    return NewPostState(title: title ?? this.title, body: body ?? this.body,feedback: feedback ?? this.feedback);
+  NewPostState copyWith({String title, String body, bool feedback}) {
+    return NewPostState(
+        title: title ?? this.title,
+        body: body ?? this.body,
+        feedback: feedback ?? this.feedback);
   }
 
   @override

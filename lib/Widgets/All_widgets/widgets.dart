@@ -19,8 +19,8 @@ BoxDecoration neumorphicBorderDecoration(
       gradient: lightTheme
           ? null
           : LinearGradient(
-              begin: Alignment(-0.5,-2),
-              end: Alignment(-1,2),
+              begin: Alignment(-0.5, -2),
+              end: Alignment(-1, 2),
               colors: [
                   Color.fromRGBO(38, 41, 45, 1),
                   Color.fromRGBO(45, 48, 54, 1),
@@ -106,7 +106,10 @@ class _FeedbackConfirmationState extends State<FeedbackConfirmation> {
           SizedBox(
             width: 5,
           ),
-          Text('Feedback ?',style: Theme.of(context).textTheme.subtitle2,),
+          Text(
+            'Feedback ?',
+            style: Theme.of(context).textTheme.subtitle2,
+          ),
           SizedBox(
             width: 10,
           ),
@@ -116,7 +119,9 @@ class _FeedbackConfirmationState extends State<FeedbackConfirmation> {
                 context.bloc<NewPostBloc>().add(FeedBackChanged(val));
                 setState(() => this.val = val);
               }),
-          SizedBox(width: 10,)
+          SizedBox(
+            width: 10,
+          )
         ],
       ),
     );

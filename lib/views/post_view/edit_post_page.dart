@@ -18,7 +18,7 @@ class _EditPostPageState extends State<EditPostPage> {
   void initState() {
     super.initState();
     _titleController.text = widget._postItem.title;
-    _descriptionController.text=widget._postItem.description;
+    _descriptionController.text = widget._postItem.description;
   }
 
   @override
@@ -78,7 +78,7 @@ class _EditPostPageState extends State<EditPostPage> {
                   await context
                       .bloc<PostBloc>()
                       .databaseService
-                      .updatePostData(postData: data,id: widget._postItem.id);
+                      .updatePostData(postData: data, id: widget._postItem.id);
                   Navigator.pop(context);
                 },
                 child: Text('Update'),

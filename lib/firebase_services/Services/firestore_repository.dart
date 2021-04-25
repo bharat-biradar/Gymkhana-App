@@ -31,10 +31,11 @@ class FirestoreRepository {
     if (clubName == null) {
       print('running searches');
       return _postsCollection
-          .where('description', isGreaterThanOrEqualTo: searchTerm)
-          .where('description', isLessThanOrEqualTo:'$searchTerm\uf8ff')
-          .snapshots()
-          .map(_getPostItem) ?? null;
+              .where('description', isGreaterThanOrEqualTo: searchTerm)
+              .where('description', isLessThanOrEqualTo: '$searchTerm\uf8ff')
+              .snapshots()
+              .map(_getPostItem) ??
+          null;
     } else {
       print('getting clubs');
       return _postsCollection

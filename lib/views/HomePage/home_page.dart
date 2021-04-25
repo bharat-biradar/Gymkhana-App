@@ -63,7 +63,7 @@ class _HomePageViewState extends State<HomePageView> {
           },
           child: Icon(
             Icons.add,
-            color: currentTheme =='light' ? Colors.black : Colors.white,
+            color: currentTheme == 'light' ? Colors.black : Colors.white,
             size: 30,
           ),
         ),
@@ -121,7 +121,8 @@ class _HomePageViewState extends State<HomePageView> {
                             ));
                           } else {
                             context.bloc<HomePageBloc>().stopwatch.stop();
-                            print(context.bloc<HomePageBloc>().stopwatch.elapsed);
+                            print(
+                                context.bloc<HomePageBloc>().stopwatch.elapsed);
                             context.bloc<HomePageBloc>().stopwatch.reset();
                             return ListView(
                                 padding: EdgeInsets.symmetric(horizontal: 30),

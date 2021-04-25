@@ -15,7 +15,6 @@ class ThemeStates extends Equatable {
     return ThemeStates(darkTheme());
   }
 
-
   @override
   List<Object> get props => [themeData];
 }
@@ -26,10 +25,10 @@ class ThemeBloc extends Bloc<ThemeChange, ThemeStates> {
   ThemeBloc(ThemeStates initialState) : super(initialState);
 
   @override
-  Stream<ThemeStates> mapEventToState(ThemeChange event) async*{
+  Stream<ThemeStates> mapEventToState(ThemeChange event) async* {
     if (event == ThemeChange.light) {
       yield ThemeStates.light();
-    }else{
+    } else {
       yield ThemeStates.dark();
     }
   }

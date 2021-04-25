@@ -58,7 +58,12 @@ class CFVIew extends StatelessWidget {
                     SizedBox(
                       width: 10,
                     ),
-                    Flexible(child: Text(data['comment'],style: Theme.of(context).textTheme.subtitle2,),)
+                    Flexible(
+                      child: Text(
+                        data['comment'],
+                        style: Theme.of(context).textTheme.subtitle2,
+                      ),
+                    )
                   ],
                 ),
               );

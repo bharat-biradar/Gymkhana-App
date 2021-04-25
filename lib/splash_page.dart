@@ -8,12 +8,17 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Padding(
+      body: Center(
+          child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Expanded(child: Text("Just a sec",style: Theme.of(context).textTheme.subtitle2,)),
+            Expanded(
+                child: Text(
+              "Just a sec",
+              style: Theme.of(context).textTheme.subtitle2,
+            )),
             CircularProgressIndicator()
           ],
         ),

@@ -150,7 +150,9 @@ class _ViewPostPageState extends State<ViewPostPage>
                 )
               ]),
         ),
-        SizedBox(height: 10,),
+        SizedBox(
+          height: 10,
+        ),
         Container(
           height: 350,
           margin: EdgeInsets.symmetric(horizontal: 11),
@@ -262,7 +264,6 @@ class _CommentButtonState extends State<CommentButton> {
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               primary: Colors.blueGrey,
-              
             ),
             onPressed: _textEditingController.text.length > 4
                 ? () => _postComment(widget._comments, currentUser)

@@ -8,7 +8,7 @@ abstract class ClubSelectEvent {
 class ClubsFormLoaded extends ClubSelectEvent {}
 
 class SocietyChanged extends ClubSelectEvent {
-  const SocietyChanged({this.society,this.selected});
+  const SocietyChanged({this.society, this.selected});
   final int selected;
 
   final String society;
@@ -20,4 +20,4 @@ class ClubChanged extends ClubSelectEvent {
   final String model;
 }
 
-class ClearAll extends ClubSelectEvent{}
+class ClearAll extends ClubSelectEvent {}
