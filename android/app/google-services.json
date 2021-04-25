@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "543794188457",
+    "firebase_url": "https://gymkhana-app-5d9dc.firebaseio.com",
+    "project_id": "gymkhana-app-5d9dc",
+    "storage_bucket": "gymkhana-app-5d9dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:543794188457:android:f5478cc474cbca57cb99b8",
+        "android_client_info": {
+          "package_name": "com.b.biradar.gymkhana_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "543794188457-66miud2bski8gg98ud5ivl8bq888dnpi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.b.biradar.gymkhana_app",
+            "certificate_hash": "d6202ee90337aa9686fff6f2b4b7e165993b1b02"
+          }
+        },
+        {
+          "client_id": "543794188457-mb654vv3q6166m6givcf9es5qcauia7l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrhEl7ldspx6ij0kgq1hNHEx3ouOAYSuE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "543794188457-mb654vv3q6166m6givcf9es5qcauia7l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
