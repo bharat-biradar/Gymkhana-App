@@ -76,7 +76,7 @@ class _EditPostPageState extends State<EditPostPage> {
                   };
 
                   await context
-                      .bloc<PostBloc>()
+                      .read<PostBloc>()
                       .databaseService
                       .updatePostData(postData: data, id: widget._postItem.id);
                   Navigator.pop(context);

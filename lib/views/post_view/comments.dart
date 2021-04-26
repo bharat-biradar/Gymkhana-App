@@ -52,7 +52,6 @@ class CFVIew extends StatelessWidget {
                       alignment: Alignment.center,
                       child: Text(
                         '${data["by"]}...',
-                        style: Theme.of(context).textTheme.subtitle1,
                       ),
                     ),
                     SizedBox(

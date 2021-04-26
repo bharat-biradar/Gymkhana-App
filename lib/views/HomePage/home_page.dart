@@ -16,15 +16,11 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return RepositoryProvider<FirestoreRepository>(
       create: (context) => FirestoreRepository(
-          uid: context
-              .repository<AuthenticationRepository>()
-              .currentCustomUser
-              .id),
+          uid: context.read<AuthenticationRepository>().currentCustomUser.id),
       child: BlocProvider(
         lazy: false,
-        create: (context) =>
-            HomePageBloc(context.repository<FirestoreRepository>())
-              ..add(HomepageInit()),
+        create: (context) => HomePageBloc(context.read<FirestoreRepository>())
+          ..add(HomepageInit()),
         child: HomePageView(),
       ),
     );
@@ -96,8 +92,8 @@ class _HomePageViewState extends State<HomePageView> {
                 child: BlocBuilder<HomePageBloc, HomePageState>(
                   builder: (context, state) {
                     if (state is HomePageLoading) {
-                      context.bloc<HomePageBloc>().add(TimerEvent());
-                      context.bloc<HomePageBloc>().stopwatch.start();
+                      context.read<HomePageBloc>().add(TimerEvent());
+                      context.read<HomePageBloc>().stopwatch.start();
                       return const Center(
                         child: const Center(child: CircularProgressIndicator()),
                       );
@@ -120,10 +116,10 @@ class _HomePageViewState extends State<HomePageView> {
                               style: Theme.of(context).textTheme.headline5,
                             ));
                           } else {
-                            context.bloc<HomePageBloc>().stopwatch.stop();
+                            context.read<HomePageBloc>().stopwatch.stop();
                             print(
-                                context.bloc<HomePageBloc>().stopwatch.elapsed);
-                            context.bloc<HomePageBloc>().stopwatch.reset();
+                                context.read<HomePageBloc>().stopwatch.elapsed);
+                            context.read<HomePageBloc>().stopwatch.reset();
                             return ListView(
                                 padding: EdgeInsets.symmetric(horizontal: 30),
                                 controller: scrollController,

@@ -55,8 +55,7 @@ class LogoutButton extends StatelessWidget {
         icon: Icon(
           Icons.arrow_forward,
         ),
-        onPressed: () =>
-            context.repository<AuthenticationRepository>().logout(),
+        onPressed: () => context.read<AuthenticationRepository>().logout(),
       ),
     );
   }

@@ -17,7 +17,7 @@ class App extends StatelessWidget {
         child: BlocProvider(
           create: (context) => AuthenticationBloc(
               authenticationRepository:
-                  context.repository<AuthenticationRepository>()),
+                  context.read<AuthenticationRepository>()),
           child: MainActivity(),
         ),
       ),

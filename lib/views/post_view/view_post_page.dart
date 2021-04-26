@@ -48,6 +48,7 @@ class _ViewPostPageState extends State<ViewPostPage>
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         Container(
           margin: EdgeInsets.symmetric(horizontal: 12),
@@ -93,68 +94,71 @@ class _ViewPostPageState extends State<ViewPostPage>
         SizedBox(
           height: 20,
         ),
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: 10),
-          child: TabBar(
-              onTap: (index) {
-                setState(() {
-                  _currentTab = index;
-                });
-              },
-              indicatorColor: theme.accentColor,
-              controller: _tabController,
-              tabs: [
-                Column(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.all(13),
-                      decoration: _currentTab == 0
-                          ? innerShadow(5)
-                          : neumorphicBorderDecoration(context,
-                              borderRadius: 10,
-                              offset1: 4,
-                              offset2: 3,
-                              spreadRadius: 0,
-                              blurRadius: 7),
-                      child: Text(
-                        'comments',
-                        style: theme.textTheme.subtitle1,
+        Flexible(
+          fit: FlexFit.loose,
+          child: Container(
+            margin: EdgeInsets.symmetric(horizontal: 10),
+            child: TabBar(
+                onTap: (index) {
+                  setState(() {
+                    _currentTab = index;
+                  });
+                },
+                indicatorColor: theme.accentColor,
+                controller: _tabController,
+                tabs: [
+                  Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(13),
+                        decoration: _currentTab == 0
+                            ? innerShadow(5)
+                            : neumorphicBorderDecoration(context,
+                                borderRadius: 10,
+                                offset1: 4,
+                                offset2: 3,
+                                spreadRadius: 0,
+                                blurRadius: 7),
+                        child: Text(
+                          'Comments',
+                          style: theme.textTheme.subtitle1,
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.all(13),
-                      decoration: _currentTab == 1
-                          ? innerShadow(5)
-                          : neumorphicBorderDecoration(context,
-                              borderRadius: 10,
-                              offset1: 4,
-                              offset2: 3,
-                              spreadRadius: 0,
-                              blurRadius: 7),
-                      child: Text(
-                        'feedback',
-                        style: theme.textTheme.subtitle1,
+                      SizedBox(
+                        height: 10,
+                      )
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(13),
+                        decoration: _currentTab == 1
+                            ? innerShadow(5)
+                            : neumorphicBorderDecoration(context,
+                                borderRadius: 10,
+                                offset1: 4,
+                                offset2: 3,
+                                spreadRadius: 0,
+                                blurRadius: 7),
+                        child: Text(
+                          'Feedback',
+                          style: theme.textTheme.subtitle1,
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    )
-                  ],
-                )
-              ]),
+                      SizedBox(
+                        height: 10,
+                      )
+                    ],
+                  )
+                ]),
+          ),
         ),
         SizedBox(
           height: 10,
         ),
         Container(
-          height: 350,
+          height: 450,
           margin: EdgeInsets.symmetric(horizontal: 11),
           child: TabBarView(controller: _tabController, children: [
             Stack(
@@ -243,9 +247,10 @@ class _CommentButtonState extends State<CommentButton> {
   @override
   Widget build(BuildContext context) {
     final currentUser =
-        context.repository<AuthenticationRepository>().currentCustomUser;
+        context.read<AuthenticationRepository>().currentCustomUser;
     final theme = Theme.of(context);
     return Container(
+      color: theme.scaffoldBackgroundColor,
       padding: EdgeInsets.symmetric(horizontal: 5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -258,6 +263,7 @@ class _CommentButtonState extends State<CommentButton> {
           Container(
               width: MediaQuery.of(context).size.width / 1.8,
               child: TextField(
+                maxLines: null,
                 controller: _textEditingController,
                 onChanged: (val) => setState(() => null),
               )),
@@ -286,7 +292,7 @@ class _CommentButtonState extends State<CommentButton> {
       'comment': _textEditingController.text,
       'timestamp': Timestamp.now(),
     };
-    await context.bloc<PostBloc>().databaseService.addComment(
+    await context.read<PostBloc>().databaseService.addComment(
         path: isComment
             ? '${widget._postItem.id}/comments'
             : '${widget._postItem.id}/feedback',

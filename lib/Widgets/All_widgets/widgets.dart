@@ -116,7 +116,7 @@ class _FeedbackConfirmationState extends State<FeedbackConfirmation> {
           Switch(
               value: val,
               onChanged: (val) {
-                context.bloc<NewPostBloc>().add(FeedBackChanged(val));
+                context.read<NewPostBloc>().add(FeedBackChanged(val));
                 setState(() => this.val = val);
               }),
           SizedBox(

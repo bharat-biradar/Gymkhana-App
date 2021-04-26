@@ -71,9 +71,9 @@ class ClubsSlider extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      context.bloc<HomePageBloc>().add(HomepageInit());
+                      context.read<HomePageBloc>().add(HomepageInit());
                       context
-                          .bloc<ClubsBloc>()
+                          .read<ClubsBloc>()
                           .add(SocietyChanged(society: null, selected: 0));
                     },
                     child: Container(
@@ -119,12 +119,12 @@ class _ClubTileState extends State<ClubTile>
     return GestureDetector(
       onTap: () {
         setState(() {
-          if (context.bloc<ClubsBloc>().state.selected == widget.myNor) {
+          if (context.read<ClubsBloc>().state.selected == widget.myNor) {
           } else {
-            context.bloc<ClubsBloc>().add(
+            context.read<ClubsBloc>().add(
                 SocietyChanged(society: widget.title, selected: widget.myNor));
             context
-                .bloc<HomePageBloc>()
+                .read<HomePageBloc>()
                 .add(FilterEvent(text: null, club: widget.title));
           }
         });
@@ -132,7 +132,7 @@ class _ClubTileState extends State<ClubTile>
       child: Container(
         margin: EdgeInsets.only(right: 15),
         padding: EdgeInsets.all(8),
-        decoration: context.bloc<ClubsBloc>().state.selected == widget.myNor
+        decoration: context.read<ClubsBloc>().state.selected == widget.myNor
             ? innerShadow(20)
             : neumorphicBorderDecoration(context,
                 borderRadius: 20,
@@ -140,30 +140,11 @@ class _ClubTileState extends State<ClubTile>
                 offset2: 2,
                 spreadRadius: 0,
                 blurRadius: 10),
-        child: Stack(children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: Image.asset(
-              widget.imageLoc,
-              height: 100,
-              width: 140,
-              fit: BoxFit.cover,
-            ),
-          ),
-          Container(
-              height: 100,
-              width: 140,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.black26,
-              ),
-              alignment: Alignment.center,
-              child: Text(
-                widget.title,
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-              ))
-        ]),
+        child: ClubIcon(
+          title: widget.title,
+          myNor: widget.myNor,
+          imageLoc: widget.imageLoc,
+        ),
       ),
     );
   }
@@ -175,4 +156,45 @@ class _ClubTileState extends State<ClubTile>
 
   @override
   bool get wantKeepAlive => true;
+}
+
+class ClubIcon extends StatefulWidget {
+  final String title;
+  final String imageLoc;
+  final int myNor;
+
+  const ClubIcon({Key key, this.title, this.imageLoc, this.myNor})
+      : super(key: key);
+
+  @override
+  _ClubIconState createState() => _ClubIconState();
+}
+
+class _ClubIconState extends State<ClubIcon> {
+  @override
+  Widget build(BuildContext context) {
+    return Stack(children: [
+      ClipRRect(
+        borderRadius: BorderRadius.circular(15),
+        child: Image.asset(
+          widget.imageLoc,
+          height: 100,
+          width: 140,
+          fit: BoxFit.cover,
+        ),
+      ),
+      Container(
+          height: 100,
+          width: 140,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: Colors.black26,
+          ),
+          alignment: Alignment.center,
+          child: Text(
+            widget.title,
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          ))
+    ]);
+  }
 }

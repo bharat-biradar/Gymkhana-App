@@ -42,8 +42,8 @@ class PostViewPage extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () => context
-                        .bloc<PostBloc>()
-                        .add(PostEditEvent(context.bloc<PostBloc>().postItem)),
+                        .read<PostBloc>()
+                        .add(PostEditEvent(context.read<PostBloc>().postItem)),
                     child: Container(
                       margin: EdgeInsets.only(right: 20),
                       padding: EdgeInsets.all(17),

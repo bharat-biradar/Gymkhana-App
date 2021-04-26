@@ -16,8 +16,7 @@ class LoginPage extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: BlocProvider(
           create: (_) => LoginCubit(
-            authenticationRepository:
-                context.repository<AuthenticationRepository>(),
+            authenticationRepository: context.read<AuthenticationRepository>(),
           ),
           child: LoginForm(),
         ),
@@ -76,7 +75,7 @@ class _GoogleLoginButton extends StatelessWidget {
       ),
       icon: Icon(Icons.arrow_forward,
           color: currentTheme == 'light' ? Colors.black : Colors.white),
-      onPressed: () => context.bloc<LoginCubit>().logInWithGoogle(),
+      onPressed: () => context.read<LoginCubit>().logInWithGoogle(),
     );
   }
 }

@@ -33,7 +33,7 @@ class InputForm extends StatelessWidget {
     return BlocBuilder<NewPostBloc, NewPostState>(
       builder: (context, state) {
         final customUser =
-            context.repository<AuthenticationRepository>().currentCustomUser;
+            context.read<AuthenticationRepository>().currentCustomUser;
         return Container(
           padding: EdgeInsets.symmetric(horizontal: 10),
           child: Column(
@@ -44,7 +44,7 @@ class InputForm extends StatelessWidget {
               TextFormField(
                 style: theme.textTheme.subtitle1,
                 onChanged: (val) {
-                  context.bloc<NewPostBloc>().add(TitleChanged(val));
+                  context.read<NewPostBloc>().add(TitleChanged(val));
                 },
                 decoration: InputDecoration(
                     errorText: state.titleValid ? null : 'Title > 15 chars',
@@ -64,7 +64,7 @@ class InputForm extends StatelessWidget {
                       BoxDecoration(border: Border.all(color: Colors.black)),
                   child: TextFormField(
                     onChanged: (val) {
-                      context.bloc<NewPostBloc>().add(BodyChanged(val));
+                      context.read<NewPostBloc>().add(BodyChanged(val));
                     },
                     maxLines: null,
                     decoration: InputDecoration(
@@ -100,7 +100,7 @@ class InputForm extends StatelessWidget {
                             'enableFeedback': state.feedback
                           };
                           await context
-                              .bloc<NewPostBloc>()
+                              .read<NewPostBloc>()
                               .databaseServices
                               .updatePostData(postData: data);
                           Navigator.pop(context);

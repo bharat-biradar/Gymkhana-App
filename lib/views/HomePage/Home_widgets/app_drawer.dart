@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gymkhana_app/Blocs/blocs.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gymkhana_app/constants.dart';
+import 'package:gymkhana_app/views/archives_view.dart/archives_view.dart';
 
 class AppDrawer extends StatelessWidget {
   @override
@@ -26,7 +27,7 @@ class AppDrawer extends StatelessWidget {
                     ClipRRect(
                         borderRadius: BorderRadius.circular(30),
                         child: Image.network(
-                          '${context.repository<AuthenticationRepository>().currentCustomUser.photoUrl}',
+                          '${context.read<AuthenticationRepository>().currentCustomUser.photoUrl}',
                           height: 50,
                         )),
                     IconButton(
@@ -40,12 +41,12 @@ class AppDrawer extends StatelessWidget {
                               color: Colors.white,
                             ),
                       onPressed: () async {
-                        if (context.bloc<ThemeBloc>().state ==
+                        if (context.read<ThemeBloc>().state ==
                             ThemeStates.light()) {
                           await setThemePreference(currentValue: 'dark');
-                          context.bloc<ThemeBloc>().add(ThemeChange.dark);
+                          context.read<ThemeBloc>().add(ThemeChange.dark);
                         } else {
-                          context.bloc<ThemeBloc>().add(ThemeChange.light);
+                          context.read<ThemeBloc>().add(ThemeChange.light);
                           await setThemePreference(currentValue: 'light');
                         }
                       },
@@ -57,7 +58,7 @@ class AppDrawer extends StatelessWidget {
                 ),
                 Text(
                   context
-                      .repository<AuthenticationRepository>()
+                      .read<AuthenticationRepository>()
                       .currentCustomUser
                       .name,
                   style: theme.textTheme.headline5,
@@ -67,7 +68,7 @@ class AppDrawer extends StatelessWidget {
                 ),
                 Text(
                   context
-                      .repository<AuthenticationRepository>()
+                      .read<AuthenticationRepository>()
                       .currentCustomUser
                       .email,
                   style: theme.textTheme.subtitle1,
@@ -85,7 +86,18 @@ class AppDrawer extends StatelessWidget {
               style: theme.textTheme.subtitle2,
             ),
             onTap: () => Navigator.pop(context),
-          )
+          ),
+          ListTile(
+              leading: Icon(
+                Icons.archive,
+                color: currentTheme == 'light' ? Colors.black : Colors.white,
+              ),
+              title: Text(
+                'Archive',
+                style: theme.textTheme.subtitle2,
+              ),
+              onTap: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ArchivePage())))
         ],
       ),
     );
