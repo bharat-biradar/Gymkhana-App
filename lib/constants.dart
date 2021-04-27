@@ -18,6 +18,10 @@ ThemeData lightTheme() {
       errorColor: Colors.red,
       hintColor: Colors.grey,
       textTheme: TextTheme(
+          headline4: TextStyle(
+              color: Colors.brown.shade500,
+              fontSize: 40,
+              fontWeight: FontWeight.w900),
           headline5: TextStyle(
               color: Colors.black, fontSize: 21, fontWeight: FontWeight.w700),
           headline6: const TextStyle(
@@ -33,8 +37,8 @@ ThemeData lightTheme() {
 ThemeData darkTheme() {
   return ThemeData(
     applyElevationOverlayColor: true,
-    scaffoldBackgroundColor: const Color.fromRGBO(42, 45, 50, 1),
-    accentColor: const Color.fromRGBO(124, 127, 139, 1),
+    scaffoldBackgroundColor: const Color.fromRGBO(1, 11, 20, 1),
+    accentColor: const Color.fromRGBO(39, 44, 56, 1),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
         focusElevation: 12,
         elevation: 10,
@@ -42,6 +46,10 @@ ThemeData darkTheme() {
     hintColor: Colors.white70,
     errorColor: Colors.deepOrangeAccent,
     textTheme: TextTheme(
+        headline4: TextStyle(
+            color: Colors.amber.shade300,
+            fontSize: 40,
+            fontWeight: FontWeight.w900),
         headline5: const TextStyle(
             color: Colors.white, fontSize: 21, fontWeight: FontWeight.w700),
         headline6: const TextStyle(

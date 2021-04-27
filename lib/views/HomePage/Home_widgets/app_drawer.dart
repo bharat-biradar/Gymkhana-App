@@ -7,6 +7,10 @@ import 'package:gymkhana_app/constants.dart';
 import 'package:gymkhana_app/views/archives_view.dart/archives_view.dart';
 
 class AppDrawer extends StatelessWidget {
+  final FirestoreRepository firestoreRepository;
+
+  AppDrawer(this.firestoreRepository);
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -96,8 +100,10 @@ class AppDrawer extends StatelessWidget {
                 'Archive',
                 style: theme.textTheme.subtitle2,
               ),
-              onTap: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ArchivePage())))
+              onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ArchivePage(firestoreRepository))))
         ],
       ),
     );

@@ -55,6 +55,7 @@ flutter:
     - assets/images/acads.jpg
     - assets/images/sctch.jpg
     - assets/images/sports.jpg
+    - assets/images/nothing.gif
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

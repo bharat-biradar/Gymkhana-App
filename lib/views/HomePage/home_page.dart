@@ -51,7 +51,7 @@ class _HomePageViewState extends State<HomePageView> {
     final Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-        drawer: AppDrawer(),
+        drawer: AppDrawer(context.read<FirestoreRepository>()),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.push(
@@ -92,7 +92,6 @@ class _HomePageViewState extends State<HomePageView> {
                 child: BlocBuilder<HomePageBloc, HomePageState>(
                   builder: (context, state) {
                     if (state is HomePageLoading) {
-                      context.read<HomePageBloc>().add(TimerEvent());
                       context.read<HomePageBloc>().stopwatch.start();
                       return const Center(
                         child: const Center(child: CircularProgressIndicator()),
@@ -108,13 +107,28 @@ class _HomePageViewState extends State<HomePageView> {
                         stream: state.postItems,
                         builder:
                             (context, AsyncSnapshot<List<PostItem>> snapshot) {
-                          if (!snapshot.hasData ||
-                              (snapshot.data.length == 0)) {
+                          if (!snapshot.hasData) {
+                            return Center(child: CircularProgressIndicator());
+                          } else if (snapshot.data.length == 0) {
                             return Center(
-                                child: Text(
-                              'No data Received yet',
-                              style: Theme.of(context).textTheme.headline5,
-                            ));
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text("There's",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headline4),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  Image.asset("assets/images/nothing.gif"),
+                                  const SizedBox(height: 10),
+                                  Text("to see",
+                                      style:
+                                          Theme.of(context).textTheme.headline4)
+                                ],
+                              ),
+                            );
                           } else {
                             context.read<HomePageBloc>().stopwatch.stop();
                             print(

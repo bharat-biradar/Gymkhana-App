@@ -125,7 +125,7 @@ class _ClubTileState extends State<ClubTile>
                 SocietyChanged(society: widget.title, selected: widget.myNor));
             context
                 .read<HomePageBloc>()
-                .add(FilterEvent(text: null, club: widget.title));
+                .add(FilterEvent(text: null, club: widget.title.toLowerCase()));
           }
         });
       },

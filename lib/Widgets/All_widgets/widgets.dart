@@ -27,7 +27,7 @@ BoxDecoration neumorphicBorderDecoration(
                 ]),
       color: lightTheme
           ? Theme.of(context).scaffoldBackgroundColor
-          : Color.fromRGBO(43, 51, 56, .6),
+          : Color.fromRGBO(39, 44, 56, 1),
       borderRadius: BorderRadius.circular(borderRadius),
       boxShadow: [
         BoxShadow(

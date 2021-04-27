@@ -27,7 +27,6 @@ class FirestoreRepository {
   }
 
   Stream<List<PostItem>> searchPosts({String searchTerm, String clubName}) {
-    print('function called');
     if (clubName == null) {
       print('running searches');
       return _postsCollection
@@ -39,10 +38,20 @@ class FirestoreRepository {
     } else {
       print('getting clubs');
       return _postsCollection
-          .where('club', isEqualTo: clubName)
+          .where('club', isEqualTo: clubName.toLowerCase())
           .snapshots()
           .map(_getPostItem);
     }
+  }
+
+  Future<List<PostItem>> getClubPosts(String clubName) async {
+    final _postListData = await _postsCollection
+        .where('club_name', isEqualTo: clubName.toLowerCase())
+        .get();
+
+    final _postList = _getPostItem(_postListData);
+
+    return _postList;
   }
 
   List<PostItem> _getPostItem(QuerySnapshot querySnapshot) {
@@ -53,6 +62,13 @@ class FirestoreRepository {
     })).toList();
   }
 
+  // List<PostItem> _getDocItem(QueryDocumentSnapshot querySnapshot) {
+  //   return querySnapshot.docs.map(((doc) {
+  //     var comments =
+  //         _firestoreInstance.collection('posts/${doc.id}/comments').snapshots();
+  //     return PostItem.fromUserData(doc, commentsStream: comments);
+  //   })).toList();
+  // }
   Future<void> updatePost({String id, Map<String, dynamic> postData}) async {
     if (id == null) {
       await _postsCollection.add(postData);

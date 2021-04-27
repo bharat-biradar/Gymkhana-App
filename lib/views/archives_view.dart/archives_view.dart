@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:gymkhana_app/Widgets/all_widgets.dart';
+import 'package:gymkhana_app/firebase_services/firebase_repository.dart';
 import 'package:gymkhana_app/views/HomePage/Home_widgets/clubs_slider.dart';
+import 'package:gymkhana_app/views/archives_view.dart/archive_club_list.dart';
 
 class ArchivePage extends StatefulWidget {
-  static Route route() {
-    return MaterialPageRoute<void>(builder: (_) => ArchivePage());
-  }
+  final FirestoreRepository _firestoreRepository;
+
+  ArchivePage(this._firestoreRepository);
 
   @override
   _ArchivePageState createState() => _ArchivePageState();
@@ -14,7 +16,7 @@ class ArchivePage extends StatefulWidget {
 
 class _ArchivePageState extends State<ArchivePage> {
   int _selected = 0;
-  static const ClubsList = <List<String>>[
+  static const SocietiesList = <List<String>>[
     [
       'assets/images/cult.jpg',
       'Cult and Lit',
@@ -37,6 +39,17 @@ class _ArchivePageState extends State<ArchivePage> {
       'Design and Arts',
     ]
   ];
+
+  static const _clubsList = <List<String>>[
+    ['Drama', 'Dance'],
+    ['Programming CLub', 'Astronomy Club'],
+    ['Informals', 'Dining'],
+    ['Placement Cell', 'MUN'],
+    ['Cricket', 'Football'],
+    ['Arts', 'Photoshop']
+  ];
+
+  var _currentClubsList = <String>[];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,12 +63,13 @@ class _ArchivePageState extends State<ArchivePage> {
                   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
-                  itemCount: ClubsList.length,
+                  itemCount: SocietiesList.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
                         setState(() {
                           _selected = index + 1;
+                          _currentClubsList = _clubsList[index];
                         });
                       },
                       child: Container(
@@ -70,13 +84,41 @@ class _ArchivePageState extends State<ArchivePage> {
                                 spreadRadius: 0,
                                 blurRadius: 10),
                         child: ClubIcon(
-                          imageLoc: ClubsList[index][0],
-                          title: ClubsList[index][1],
+                          imageLoc: SocietiesList[index][0],
+                          title: SocietiesList[index][1],
                           myNor: index + 1,
                         ),
                       ),
                     );
-                  }))
+                  })),
+          SizedBox(height: 20),
+          ListView.builder(
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              shrinkWrap: true,
+              itemCount: _currentClubsList.length,
+              itemBuilder: (context, index) {
+                return Container(
+                  margin: EdgeInsets.only(bottom: 15),
+                  decoration: neumorphicBorderDecoration(context,
+                      borderRadius: 15,
+                      offset1: 7,
+                      offset2: 2,
+                      spreadRadius: 3,
+                      blurRadius: 7),
+                  child: ListTile(
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ClubArchive(
+                                _currentClubsList[index],
+                                widget._firestoreRepository))),
+                    title: Text(
+                      _currentClubsList[index],
+                      style: Theme.of(context).textTheme.subtitle1,
+                    ),
+                  ),
+                );
+              })
         ],
       ),
     );
