@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gymkhana_app/Blocs/clubs_bloc/clubs_bloc.dart';
 import 'package:gymkhana_app/Blocs/homepage_bloc/home_page_bloc.dart';
+import 'package:gymkhana_app/constants.dart';
 
 import '../../../Widgets/All_widgets/widgets.dart';
 
@@ -81,10 +82,10 @@ class ClubsSlider extends StatelessWidget {
                           EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                       decoration: neumorphicBorderDecoration(context,
                           borderRadius: 10,
-                          offset1: 4,
-                          offset2: 3,
+                          offset1: 2,
+                          offset2: 2,
                           spreadRadius: 0,
-                          blurRadius: 7),
+                          blurRadius: 4),
                       child: Text('Clear',
                           style: Theme.of(context).textTheme.subtitle2),
                     ),
@@ -136,10 +137,10 @@ class _ClubTileState extends State<ClubTile>
             ? innerShadow(20)
             : neumorphicBorderDecoration(context,
                 borderRadius: 20,
-                offset1: 10,
+                offset1: currentTheme == 'light' ? 6 : 2,
                 offset2: 2,
                 spreadRadius: 0,
-                blurRadius: 10),
+                blurRadius: 5),
         child: ClubIcon(
           title: widget.title,
           myNor: widget.myNor,

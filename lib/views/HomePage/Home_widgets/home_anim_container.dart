@@ -1,3 +1,4 @@
+import 'package:gymkhana_app/constants.dart';
 import 'package:gymkhana_app/firebase_services/firebase_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:gymkhana_app/Widgets/all_widgets.dart';
@@ -50,7 +51,10 @@ class LogoutButton extends StatelessWidget {
       alignment: Alignment.center,
       padding: EdgeInsets.all(1),
       decoration: neumorphicBorderDecoration(context,
-          borderRadius: 10, offset1: 5, spreadRadius: 0, blurRadius: 7),
+          borderRadius: 10,
+          offset1: currentTheme == 'light' ? 5 : 2,
+          spreadRadius: 0,
+          blurRadius: 7),
       child: IconButton(
         icon: Icon(
           Icons.arrow_forward,

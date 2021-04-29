@@ -1,3 +1,4 @@
+import 'package:gymkhana_app/Widgets/All_widgets/widgets.dart';
 import 'package:gymkhana_app/firebase_services/firebase_repository.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -110,25 +111,7 @@ class _HomePageViewState extends State<HomePageView> {
                           if (!snapshot.hasData) {
                             return Center(child: CircularProgressIndicator());
                           } else if (snapshot.data.length == 0) {
-                            return Center(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text("There's",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .headline4),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                  Image.asset("assets/images/nothing.gif"),
-                                  const SizedBox(height: 10),
-                                  Text("to see",
-                                      style:
-                                          Theme.of(context).textTheme.headline4)
-                                ],
-                              ),
-                            );
+                            return NothingToSee();
                           } else {
                             context.read<HomePageBloc>().stopwatch.stop();
                             print(

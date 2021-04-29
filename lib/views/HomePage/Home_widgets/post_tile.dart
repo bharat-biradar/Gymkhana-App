@@ -11,6 +11,7 @@ class PostTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool lightTheme = currentTheme == 'light';
     final theme = Theme.of(context);
     return GestureDetector(
       onTap: () {
@@ -23,7 +24,10 @@ class PostTile extends StatelessWidget {
       },
       child: Container(
         decoration: neumorphicBorderDecoration(context,
-            borderRadius: 40, offset1: 8, spreadRadius: 0, blurRadius: 8),
+            borderRadius: 40,
+            offset1: lightTheme ? 8 : 2,
+            spreadRadius: 0,
+            blurRadius: 8),
         padding: EdgeInsets.all(25),
         margin: EdgeInsets.only(bottom: 20, top: 20),
         width: double.infinity,
@@ -31,30 +35,14 @@ class PostTile extends StatelessWidget {
           children: [
             Row(
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(
-                          color: currentTheme == 'light'
-                              ? Colors.black
-                              : Colors.white,
-                          width: 2),
-                      borderRadius: BorderRadius.circular(100)),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: Image.network(
-                      _postItem.photoUrl,
-                      height: 45,
-                      width: 45,
-                    ),
-                  ),
-                ),
+                CustomNetworkImage(_postItem.photoUrl, 45),
                 SizedBox(
                   width: 10,
                 ),
                 Expanded(
                   child: Text(
                     _postItem.title,
-                    style: theme.textTheme.headline6,
+                    style: theme.textTheme.headline5,
                   ),
                 ),
               ],
@@ -88,6 +76,31 @@ class PostTile extends StatelessWidget {
               },
             )
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class CustomNetworkImage extends StatelessWidget {
+  final String _url;
+  final double _height;
+
+  const CustomNetworkImage(this._url, this._height);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          border: Border.all(
+              color: currentTheme == 'light' ? Colors.black : Colors.white,
+              width: 2),
+          borderRadius: BorderRadius.circular(100)),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(100),
+        child: Image.network(
+          _url,
+          height: _height,
+          width: _height,
         ),
       ),
     );

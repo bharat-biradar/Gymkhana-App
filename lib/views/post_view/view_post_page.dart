@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gymkhana_app/Blocs/post_bloc/post_bloc.dart';
 import 'package:gymkhana_app/Widgets/all_widgets.dart';
+import 'package:gymkhana_app/views/HomePage/Home_widgets/post_tile.dart';
 import 'package:gymkhana_app/views/post_view/comments.dart';
 import '../../constants.dart';
 import 'package:flutter/gestures.dart';
@@ -51,24 +52,16 @@ class _ViewPostPageState extends State<ViewPostPage>
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          margin: EdgeInsets.symmetric(horizontal: 12),
+          margin: EdgeInsets.symmetric(horizontal: 16),
           decoration: neumorphicBorderDecoration(context,
-              borderRadius: 40,
-              offset1: 1,
-              spreadRadius: 0,
-              blurRadius: 10,
-              offset2: 3),
+              borderRadius: 40, offset1: 8, spreadRadius: 0, blurRadius: 8),
           padding: EdgeInsets.all(15),
           child: Column(
             children: [
               Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Image.network(
-                    widget._postItem.photoUrl,
-                    height: 70,
-                    width: 70,
-                  ),
+                  CustomNetworkImage(widget._postItem.photoUrl, 70),
                   SizedBox(
                     width: 20,
                   ),

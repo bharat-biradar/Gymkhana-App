@@ -16,18 +16,7 @@ BoxDecoration neumorphicBorderDecoration(
 }) {
   bool lightTheme = currentTheme == 'light';
   return BoxDecoration(
-      gradient: lightTheme
-          ? null
-          : LinearGradient(
-              begin: Alignment(-0.5, -2),
-              end: Alignment(-1, 2),
-              colors: [
-                  Color.fromRGBO(38, 41, 45, 1),
-                  Color.fromRGBO(45, 48, 54, 1),
-                ]),
-      color: lightTheme
-          ? Theme.of(context).scaffoldBackgroundColor
-          : Color.fromRGBO(39, 44, 56, 1),
+      color: Theme.of(context).scaffoldBackgroundColor,
       borderRadius: BorderRadius.circular(borderRadius),
       boxShadow: [
         BoxShadow(
@@ -48,10 +37,15 @@ BoxDecoration neumorphicBorderDecoration(
 }
 
 Decoration innerShadow(double depth) {
+  bool lightTheme = currentTheme == 'light';
   return ConcaveDecoration(
       colors: [
-        Color.fromRGBO(250, 251, 255, .1),
-        Color.fromRGBO(166, 171, 189, 1),
+        lightTheme
+            ? Color.fromRGBO(65, 70, 86, 1)
+            : Color.fromRGBO(75, 86, 93, 1),
+        lightTheme
+            ? Color.fromRGBO(166, 171, 189, 1)
+            : Color.fromRGBO(75, 86, 93, 1),
       ],
       opacity: 1,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -63,7 +57,10 @@ class SearchField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: neumorphicBorderDecoration(context,
-          borderRadius: 10, offset1: 5, spreadRadius: 0, blurRadius: 10),
+          borderRadius: 10,
+          offset1: currentTheme == 'light' ? 5 : 2,
+          spreadRadius: 0,
+          blurRadius: 10),
       padding: EdgeInsets.all(9),
       child: Row(
         children: [
@@ -147,4 +144,24 @@ void showDialogBox(BuildContext context, Function submitPost) {
           ],
         );
       });
+}
+
+class NothingToSee extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text("There's", style: Theme.of(context).textTheme.headline4),
+          const SizedBox(
+            height: 10,
+          ),
+          Image.asset("assets/images/nothing.gif"),
+          const SizedBox(height: 10),
+          Text("to see", style: Theme.of(context).textTheme.headline4)
+        ],
+      ),
+    );
+  }
 }

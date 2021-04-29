@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:gymkhana_app/Widgets/all_widgets.dart';
+import 'package:gymkhana_app/constants.dart';
 import 'package:gymkhana_app/firebase_services/firebase_repository.dart';
 import 'package:gymkhana_app/views/HomePage/Home_widgets/clubs_slider.dart';
 import 'package:gymkhana_app/views/archives_view.dart/archive_club_list.dart';
@@ -41,7 +42,7 @@ class _ArchivePageState extends State<ArchivePage> {
   ];
 
   static const _clubsList = <List<String>>[
-    ['Drama', 'Dance'],
+    ['Drama Club', 'Dance'],
     ['Programming CLub', 'Astronomy Club'],
     ['Informals', 'Dining'],
     ['Placement Cell', 'MUN'],
@@ -79,7 +80,7 @@ class _ArchivePageState extends State<ArchivePage> {
                             ? innerShadow(20)
                             : neumorphicBorderDecoration(context,
                                 borderRadius: 20,
-                                offset1: 10,
+                                offset1: currentTheme == 'light' ? 6 : 2,
                                 offset2: 2,
                                 spreadRadius: 0,
                                 blurRadius: 10),
@@ -101,9 +102,9 @@ class _ArchivePageState extends State<ArchivePage> {
                   margin: EdgeInsets.only(bottom: 15),
                   decoration: neumorphicBorderDecoration(context,
                       borderRadius: 15,
-                      offset1: 7,
-                      offset2: 2,
-                      spreadRadius: 3,
+                      offset1: currentTheme == 'light' ? 5 : 1,
+                      offset2: 3,
+                      spreadRadius: 1,
                       blurRadius: 7),
                   child: ListTile(
                     onTap: () => Navigator.push(

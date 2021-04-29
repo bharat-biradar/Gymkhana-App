@@ -18,6 +18,12 @@ ThemeData lightTheme() {
       errorColor: Colors.red,
       hintColor: Colors.grey,
       textTheme: TextTheme(
+          headline2: TextStyle(
+            fontSize: 30,
+          ),
+          headline3: TextStyle(
+            fontSize: 25,
+          ),
           headline4: TextStyle(
               color: Colors.brown.shade500,
               fontSize: 40,
@@ -37,8 +43,8 @@ ThemeData lightTheme() {
 ThemeData darkTheme() {
   return ThemeData(
     applyElevationOverlayColor: true,
-    scaffoldBackgroundColor: const Color.fromRGBO(1, 11, 20, 1),
-    accentColor: const Color.fromRGBO(39, 44, 56, 1),
+    scaffoldBackgroundColor: const Color.fromRGBO(24, 29, 37, 1),
+    accentColor: const Color.fromRGBO(101, 87, 115, 1),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
         focusElevation: 12,
         elevation: 10,
@@ -46,12 +52,18 @@ ThemeData darkTheme() {
     hintColor: Colors.white70,
     errorColor: Colors.deepOrangeAccent,
     textTheme: TextTheme(
+        headline2:
+            TextStyle(fontSize: 30, color: Color.fromRGBO(52, 143, 133, 1)),
+        headline3:
+            TextStyle(fontSize: 25, color: Color.fromRGBO(218, 243, 239, 1)),
         headline4: TextStyle(
             color: Colors.amber.shade300,
             fontSize: 40,
             fontWeight: FontWeight.w900),
         headline5: const TextStyle(
-            color: Colors.white, fontSize: 21, fontWeight: FontWeight.w700),
+            color: Color.fromRGBO(190, 187, 187, 1),
+            fontSize: 21,
+            fontWeight: FontWeight.w700),
         headline6: const TextStyle(
             color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
         subtitle1: const TextStyle(
@@ -72,8 +84,8 @@ class LightShadow {
 }
 
 class DarkShadow {
-  static const Color primaryShadow = Color.fromRGBO(48, 52, 58, 1);
-  static const Color secondaryShadow = Color.fromRGBO(36, 38, 43, 1);
+  static const Color secondaryShadow = Color.fromRGBO(8, 10, 12, 1);
+  static const Color primaryShadow = Color.fromRGBO(110, 120, 136, .5);
 }
 
 Future<void> setThemePreference({String currentValue}) async {
