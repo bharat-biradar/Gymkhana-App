@@ -54,7 +54,10 @@ class _ViewPostPageState extends State<ViewPostPage>
         Container(
           margin: EdgeInsets.symmetric(horizontal: 16),
           decoration: neumorphicBorderDecoration(context,
-              borderRadius: 40, offset1: 8, spreadRadius: 0, blurRadius: 8),
+              borderRadius: 40,
+              offset1: currentTheme == 'light' ? 8 : 2,
+              spreadRadius: 0,
+              blurRadius: 8),
           padding: EdgeInsets.all(15),
           child: Column(
             children: [

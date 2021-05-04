@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:gymkhana_app/Widgets/all_widgets.dart';
 
 import 'view_post_page.dart';
@@ -41,18 +42,28 @@ class PostViewPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   GestureDetector(
-                    onTap: () => context
-                        .read<PostBloc>()
-                        .add(PostEditEvent(context.read<PostBloc>().postItem)),
+                    onTap: context
+                                .read<AuthenticationRepository>()
+                                .currentCustomUser
+                                .id ==
+                            context.read<PostBloc>().postItem.authorID
+                        ? () => context.read<PostBloc>().add(
+                            PostEditEvent(context.read<PostBloc>().postItem))
+                        : () {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content:
+                                        Text("Only author can edit the post")));
+                          },
                     child: Container(
                       margin: EdgeInsets.only(right: 20),
                       padding: EdgeInsets.all(17),
                       decoration: neumorphicBorderDecoration(
                         context,
                         borderRadius: 10,
-                        offset1: 6,
+                        offset1: currentTheme == 'light' ? 6 : 2,
                         spreadRadius: 0,
-                        blurRadius: 10,
+                        blurRadius: 7,
                       ),
                       child: Text('Update',
                           style: Theme.of(context).textTheme.subtitle2),

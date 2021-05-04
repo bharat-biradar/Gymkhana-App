@@ -62,7 +62,9 @@ class _EditPostPageState extends State<EditPostPage> {
                 child: TextFormField(
                   controller: _descriptionController,
                   maxLines: null,
-                  decoration: InputDecoration(border: InputBorder.none),
+                  decoration: InputDecoration(
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.all(10)),
                 ),
               ),
               SizedBox(
@@ -72,7 +74,8 @@ class _EditPostPageState extends State<EditPostPage> {
                 onPressed: () async {
                   final data = {
                     'title': _titleController.text,
-                    'decription': _descriptionController.text
+                    'decription': _descriptionController.text,
+                    'last_updated': Timestamp.now()
                   };
 
                   await context

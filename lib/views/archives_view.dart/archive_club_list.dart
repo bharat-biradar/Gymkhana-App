@@ -84,8 +84,16 @@ class _ClubArchiveState extends State<ClubArchive> {
 }
 
 const clubProfiles = {
-  'dance':
+  'literature club iit jodhpur':
       """https://assets-2.placeit.net/smart_templates/13dd0f8bc046af45656d4a7c083f5173/assets/preview_c4d5a3708ff03cff7b56cafcabe9aff3.jpg""",
-  'drama club':
-      """https://miro.medium.com/max/959/1*KIp7P4GmOGAGEZV3vhG5FA.jpeg"""
+  'book club':
+      """https://static.seattletimes.com/wp-content/uploads/2019/10/TZR-BookClub-780x501.jpg""",
+  'The video editing & film making club iitj':
+      """https://students.iitj.ac.in/media/club_2017/framex.jpg""",
+  'cultural and literary society':
+      """https://k6u8v6y8.stackpathcdn.com/blog/wp-content/uploads/2014/12/Cultural-Festivals-of-India.jpg""",
+  'news letter iit jodhpur':
+      """https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSlveb-F01M4Vb1y8M5czWmczjP1AzzsC1576f6YIJPDJFc78fvhMvpUFtIeseEgQLpRM&usqp=CAU""",
+  'aero-modelling club':
+      """http://www.iitg.ac.in/stud/gymkhana/technical/assets/img/resources/AeromodellingLogo.png""",
 };

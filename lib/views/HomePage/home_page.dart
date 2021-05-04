@@ -54,10 +54,19 @@ class _HomePageViewState extends State<HomePageView> {
       child: Scaffold(
         drawer: AppDrawer(context.read<FirestoreRepository>()),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => NewPost()));
-          },
+          onPressed: allowedUsers.contains(context
+                  .read<AuthenticationRepository>()
+                  .currentCustomUser
+                  .email)
+              ? () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => NewPost()));
+                }
+              : () {
+                  ScaffoldMessenger.of(context)
+                    ..showSnackBar(const SnackBar(
+                        content: Text("You are not authorised to post")));
+                },
           child: Icon(
             Icons.add,
             color: currentTheme == 'light' ? Colors.black : Colors.white,
@@ -148,3 +157,5 @@ class _HomePageViewState extends State<HomePageView> {
     );
   }
 }
+
+const allowedUsers = {"biradar.1@iitj.ac.in"};

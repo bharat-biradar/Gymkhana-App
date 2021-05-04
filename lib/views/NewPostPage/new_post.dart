@@ -94,10 +94,13 @@ class InputForm extends StatelessWidget {
                             'photoUrl': customUser.photoUrl,
                             'title': state.title,
                             'description': state.body,
-                            'time created': Timestamp.now(),
+                            'create_timeStamp': Timestamp.now(),
                             'author_id': customUser.id,
-                            'club': customUser.name,
-                            'enableFeedback': state.feedback
+                            'society':
+                                _clubToSociety[customUser.name.toLowerCase()]
+                                    .toLowerCase(),
+                            'enableFeedback': state.feedback,
+                            'club_name': customUser.name.toLowerCase()
                           };
                           await context
                               .read<NewPostBloc>()
@@ -120,3 +123,27 @@ class InputForm extends StatelessWidget {
     );
   }
 }
+
+final _clubToSociety = {
+  'entrepreneurship cell': 'Academics and Career',
+  'student academics & career society': 'Academics and Career',
+  'the animation club iitj': 'Design and Arts',
+  'fine arts club iitj': 'Design and Arts',
+  'the designing club iitj': 'Design and Arts',
+  'the video editing & film making club iitj': 'Design and Arts',
+  'the photography and photo-editing club iitj': 'Design and Arts',
+  'literature club iit jodhpur': 'Cult and Lit',
+  'cultural and literary society': 'Cult and Lit',
+  'news letter iit jodhpur': 'Cult and Lit',
+  'book club': 'Cult and Lit',
+  'aero-medelling club': 'Science and Tech',
+  'astronomy club': 'Science and Tech',
+  'automobile club': 'Science and Tech',
+  'electronics club': 'Science and Tech',
+  'programming club': 'Science and Tech',
+  'robotics club': 'Science and Tech',
+  'science club': 'Science and Tech',
+  'sports society': 'Sports and Games',
+  'bharat biradar (b19cse022)': 'Academics and Career',
+  'campus life society': 'Campus Life',
+};

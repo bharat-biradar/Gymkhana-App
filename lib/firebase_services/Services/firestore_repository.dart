@@ -16,8 +16,10 @@ class FirestoreRepository {
     return await _firestoreInstance.collection('users').doc(_uid).get();
   }
 
-  Stream<List<PostItem>> get snapshotStream =>
-      _postsCollection.snapshots().map(_getPostItem);
+  Stream<List<PostItem>> get snapshotStream => _postsCollection
+      .orderBy('last_updated', descending: true)
+      .snapshots()
+      .map(_getPostItem);
 
   Stream getCommentsStream(String id) {
     return _firestoreInstance
@@ -38,7 +40,7 @@ class FirestoreRepository {
     } else {
       print('getting clubs');
       return _postsCollection
-          .where('club', isEqualTo: clubName.toLowerCase())
+          .where('society', isEqualTo: clubName.toLowerCase())
           .snapshots()
           .map(_getPostItem);
     }
@@ -62,13 +64,6 @@ class FirestoreRepository {
     })).toList();
   }
 
-  // List<PostItem> _getDocItem(QueryDocumentSnapshot querySnapshot) {
-  //   return querySnapshot.docs.map(((doc) {
-  //     var comments =
-  //         _firestoreInstance.collection('posts/${doc.id}/comments').snapshots();
-  //     return PostItem.fromUserData(doc, commentsStream: comments);
-  //   })).toList();
-  // }
   Future<void> updatePost({String id, Map<String, dynamic> postData}) async {
     if (id == null) {
       await _postsCollection.add(postData);

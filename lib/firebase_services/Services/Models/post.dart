@@ -10,10 +10,11 @@ class PostItem extends Equatable {
         title: data['title'].toString(),
         clubName: data['club'].toString(),
         id: doc.id,
-        description: data['description'] as String,
+        description: data['description'],
         photoUrl: data['photoUrl'].toString(),
         comments: commentsStream,
-        enableFeedback: data['enableFeedback'] as bool);
+        enableFeedback: data['enableFeedback'] as bool,
+        authorID: data['author_id'].toString());
   }
 
   const PostItem._(
@@ -23,7 +24,8 @@ class PostItem extends Equatable {
       @required this.description,
       @required this.photoUrl,
       @required this.comments,
-      @required this.enableFeedback});
+      @required this.enableFeedback,
+      @required this.authorID});
 
   final String id;
   final String title;
@@ -32,6 +34,7 @@ class PostItem extends Equatable {
   final String photoUrl;
   final Stream<QuerySnapshot> comments;
   final bool enableFeedback;
+  final String authorID;
 
   @override
   List<Object> get props => [

@@ -42,12 +42,31 @@ class _ArchivePageState extends State<ArchivePage> {
   ];
 
   static const _clubsList = <List<String>>[
-    ['Drama Club', 'Dance'],
-    ['Programming CLub', 'Astronomy Club'],
-    ['Informals', 'Dining'],
-    ['Placement Cell', 'MUN'],
-    ['Cricket', 'Football'],
-    ['Arts', 'Photoshop']
+    [
+      'Literature Club IIT Jodhpur',
+      'Book club',
+      'Cultural and Literary society',
+      'News Letter IIT Jodhpur'
+    ],
+    [
+      'Aero-medelling club',
+      'Astronomy Club',
+      'Automobile club',
+      'Electronics club',
+      'Programming club',
+      'Robotics club',
+      'Science club'
+    ],
+    ['Campus Life Scoiety'],
+    ['Entrepreneurship cell', 'student academics & career society'],
+    ['Sports Society'],
+    [
+      'The Animation club iitj',
+      'Fine Arts club iitj',
+      'The Designing club iitj',
+      'The Video editing & Film making club iitj',
+      'The Photography and Photo-editing club iitj'
+    ]
   ];
 
   var _currentClubsList = <String>[];

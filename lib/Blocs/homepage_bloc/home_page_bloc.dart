@@ -28,7 +28,6 @@ class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
         await Future<void>.delayed(Duration(seconds: 1));
         if (_postItems == null) {
           _postItems = _firestoreRepository.snapshotStream;
-          print(_postItems.toString());
         }
         yield HomePageLoaded(_postItems);
       } catch (error) {
