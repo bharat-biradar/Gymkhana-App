@@ -158,4 +158,4 @@ class _HomePageViewState extends State<HomePageView> {
   }
 }
 
-const allowedUsers = {"biradar.1@iitj.ac.in"};
+const allowedUsers = {"biradar.1@iitj.ac.in", "sarvaiya.1@iitj.ac.in"};

@@ -6,7 +6,7 @@ class PostItem extends Equatable {
   factory PostItem.fromUserData(QueryDocumentSnapshot doc,
       {@required Stream<QuerySnapshot> commentsStream}) {
     var data = doc.data();
-    return PostItem._(
+    return PostItem(
         title: data['title'].toString(),
         clubName: data['club'].toString(),
         id: doc.id,
@@ -17,7 +17,7 @@ class PostItem extends Equatable {
         authorID: data['author_id'].toString());
   }
 
-  const PostItem._(
+  const PostItem(
       {@required this.id,
       @required this.title,
       @required this.clubName,

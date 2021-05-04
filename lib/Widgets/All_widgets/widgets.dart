@@ -104,7 +104,7 @@ class _FeedbackConfirmationState extends State<FeedbackConfirmation> {
             width: 5,
           ),
           Text(
-            'Feedback ?',
+            'Enable Feedback',
             style: Theme.of(context).textTheme.subtitle2,
           ),
           SizedBox(

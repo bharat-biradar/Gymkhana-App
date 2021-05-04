@@ -19,6 +19,10 @@ class _ArchivePageState extends State<ArchivePage> {
   int _selected = 0;
   static const SocietiesList = <List<String>>[
     [
+      'assets/images/design.jpg',
+      'Design and Arts',
+    ],
+    [
       'assets/images/cult.jpg',
       'Cult and Lit',
     ],
@@ -35,13 +39,16 @@ class _ArchivePageState extends State<ArchivePage> {
       'assets/images/sports.jpg',
       'Sports and Games',
     ],
-    [
-      'assets/images/design.jpg',
-      'Design and Arts',
-    ]
   ];
 
   static const _clubsList = <List<String>>[
+    [
+      'The Animation club iitj',
+      'Fine Arts club iitj',
+      'The Designing club iitj',
+      'The Video editing & Film making club iitj',
+      'The Photography and Photo-editing club iitj'
+    ],
     [
       'Literature Club IIT Jodhpur',
       'Book club',
@@ -49,7 +56,7 @@ class _ArchivePageState extends State<ArchivePage> {
       'News Letter IIT Jodhpur'
     ],
     [
-      'Aero-medelling club',
+      'Aero-modelling club',
       'Astronomy Club',
       'Automobile club',
       'Electronics club',
@@ -57,16 +64,9 @@ class _ArchivePageState extends State<ArchivePage> {
       'Robotics club',
       'Science club'
     ],
-    ['Campus Life Scoiety'],
-    ['Entrepreneurship cell', 'student academics & career society'],
+    ['Campus Life Society'],
+    ['Entrepreneurship cell', 'Student Academics & Career society'],
     ['Sports Society'],
-    [
-      'The Animation club iitj',
-      'Fine Arts club iitj',
-      'The Designing club iitj',
-      'The Video editing & Film making club iitj',
-      'The Photography and Photo-editing club iitj'
-    ]
   ];
 
   var _currentClubsList = <String>[];

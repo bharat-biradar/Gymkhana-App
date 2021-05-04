@@ -19,7 +19,7 @@ ThemeData lightTheme() {
       hintColor: Colors.grey,
       textTheme: TextTheme(
           headline2: TextStyle(
-            fontSize: 30,
+            fontSize: 28,
           ),
           headline3: TextStyle(
             fontSize: 25,
@@ -53,7 +53,7 @@ ThemeData darkTheme() {
     errorColor: Colors.deepOrangeAccent,
     textTheme: TextTheme(
         headline2:
-            TextStyle(fontSize: 30, color: Color.fromRGBO(52, 143, 133, 1)),
+            TextStyle(fontSize: 28, color: Color.fromRGBO(52, 143, 133, 1)),
         headline3:
             TextStyle(fontSize: 25, color: Color.fromRGBO(218, 243, 239, 1)),
         headline4: TextStyle(

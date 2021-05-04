@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:gymkhana_app/firebase_services/firebase_repository.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -30,8 +31,9 @@ class AppDrawer extends StatelessWidget {
                   children: [
                     ClipRRect(
                         borderRadius: BorderRadius.circular(30),
-                        child: Image.network(
-                          '${context.read<AuthenticationRepository>().currentCustomUser.photoUrl}',
+                        child: CachedNetworkImage(
+                          imageUrl:
+                              '${context.read<AuthenticationRepository>().currentCustomUser.photoUrl}',
                           height: 50,
                         )),
                     IconButton(

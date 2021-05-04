@@ -5,9 +5,9 @@ class NewPostState extends Equatable {
   final String body;
   final bool feedback;
 
-  bool get titleValid => title.length > 15 ? true : false;
+  bool get titleValid => title.length > 0 ? true : false;
 
-  bool get bodyValid => body.length > 45 ? true : false;
+  bool get bodyValid => body.length > 0 ? true : false;
 
   bool get formValid => (titleValid && bodyValid) ? true : false;
 

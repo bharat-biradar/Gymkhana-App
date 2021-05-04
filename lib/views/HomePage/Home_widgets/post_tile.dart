@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:gymkhana_app/firebase_services/firebase_repository.dart';
 import 'package:flutter/material.dart';
@@ -97,10 +98,11 @@ class CustomNetworkImage extends StatelessWidget {
           borderRadius: BorderRadius.circular(100)),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(100),
-        child: Image.network(
-          _url,
+        child: CachedNetworkImage(
+          imageUrl: _url,
           height: _height,
           width: _height,
+          fit: BoxFit.fitHeight,
         ),
       ),
     );
