@@ -31,13 +31,13 @@ class _ClubArchiveState extends State<ClubArchive> {
               children: [
                 SizedBox(height: 10),
                 Container(
-                  padding: EdgeInsets.all(25),
-                  height: 180,
+                  padding: EdgeInsets.symmetric(vertical: 25, horizontal: 15),
+                  height: 200,
                   child: Row(
                     children: [
                       CustomNetworkImage(
                           clubProfiles[widget._clubName.toLowerCase()], 80),
-                      const SizedBox(width: 40),
+                      const SizedBox(width: 20),
                       Expanded(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,

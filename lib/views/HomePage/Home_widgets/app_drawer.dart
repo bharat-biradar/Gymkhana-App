@@ -34,7 +34,7 @@ class AppDrawer extends StatelessWidget {
                         child: CachedNetworkImage(
                           imageUrl:
                               '${context.read<AuthenticationRepository>().currentCustomUser.photoUrl}',
-                          height: 50,
+                          height: 40,
                         )),
                     IconButton(
                       icon: currentTheme == 'light'
@@ -67,7 +67,7 @@ class AppDrawer extends StatelessWidget {
                       .read<AuthenticationRepository>()
                       .currentCustomUser
                       .name,
-                  style: theme.textTheme.headline5,
+                  style: theme.textTheme.subtitle2,
                 ),
                 SizedBox(
                   height: 20,
