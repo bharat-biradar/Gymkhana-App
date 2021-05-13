@@ -56,6 +56,10 @@ class FirestoreRepository {
     return _postList;
   }
 
+  Future<List<PostItem>> getAllPosts() async {
+    return await _postsCollection.get().then((value) => _getPostItem(value));
+  }
+
   List<PostItem> _getPostItem(QuerySnapshot querySnapshot) {
     return querySnapshot.docs.map(((doc) {
       var comments =
