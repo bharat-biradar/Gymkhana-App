@@ -42,7 +42,7 @@ class AuthenticationRepository {
     try {
       var _googleSignInAccount = await _googleSignIn.signIn();
       final googleAuthentication = await _googleSignInAccount.authentication;
-      if (_googleSignInAccount.email.contains('@iitj.ac.in')) {
+      if (isInstituteMail(_googleSignInAccount.email)) {
         final credentials = GoogleAuthProvider.credential(
             idToken: googleAuthentication.idToken,
             accessToken: googleAuthentication.accessToken);
@@ -73,4 +73,8 @@ class AuthenticationRepository {
       throw LogoutFailure();
     }
   }
+}
+
+bool isInstituteMail(String email) {
+  return email.toLowerCase().endsWith('@iitj.ac.in');
 }

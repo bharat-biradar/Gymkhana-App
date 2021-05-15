@@ -224,6 +224,7 @@ final _clubToSociety = {
   'science club': 'Science and Tech',
   'sports society': 'Sports and Games',
   'bharat biradar (b19cse022)': 'Academics and Career',
+  'bhagirathsinh sarvaiya (b19cse021)': 'Campus Life',
   'campus life society': 'Campus Life',
 };
 
