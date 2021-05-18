@@ -7,4 +7,9 @@ void main() async {
     var result = isInstituteMail('example@gmail.com');
     expect(result, false);
   });
+
+  test('Institute Email accepted', () async {
+    var result = isInstituteMail('example@iitj.ac.in');
+    expect(result, true);
+  });
 }
